@@ -1,0 +1,91 @@
+//
+//  TreasurePrefix.pch
+//  Treasure
+//
+//  Created by 谢腾飞 on 2017/6/3.
+//  Copyright © 2017年 谢腾飞. All rights reserved.
+//
+
+#ifndef TreasurePrefix_pch
+#define TreasurePrefix_pch
+
+/*** 如果希望某些内容能拷贝到任何源代码文件(OC\C\C++等), 那么就不要写在#ifdef __OBJC__和#endif之间 ***/
+
+
+/***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
+#ifdef __OBJC__
+#import "UIView+TFExtension.h"
+#import "UIBarButtonItem+TFExtension.h"
+#import "UIButton+TFExtension.h"
+#import "UILabel+TFExtension.h"
+#import "MJExtension.h"
+#import "TFRefreshHeader.h"
+#import "TFRefreshFooter.h"
+#import "InterfacePrefix.pch"
+#import "TFAccount.h"
+#import "TFAccountTool.h"
+#import "TFConst.h"
+#import "TFNetworkTools.h"
+#import "AFNetworking.h"
+#import "TFWebViewController.h"
+#import "UIImageView+WebCache.h"
+#import "TFTextField.h"
+#import "TFProgressHUD.h"
+#import "NSString+TFExtension.h"
+
+/*** 屏幕大小尺寸 ***/
+#define TFScreeFrame                [UIScreen mainScreen].bounds
+#define TFMainScreen_Size           [UIScreen mainScreen].bounds.size
+#define TFMainScreen_Width          [UIScreen mainScreen].bounds.size.width
+#define TFMainScreen_Height         [UIScreen mainScreen].bounds.size.height
+#define TFSelfScreen_Size           self.view.bounds.size
+
+/*** 滚动视图高度 ***/
+#define ScrollViewHeight            340 * TFMainScreen_Width/720
+
+/*** 字体 ***/
+#define TFCommentTitleFont          [UIFont fontWithName:@"Heiti SC" size:12]
+#define TFCommentSubTitleFont       [UIFont fontWithName:@"Heiti SC" size:10]
+#define TFMoreTitleFont             [UIFont fontWithName:@"Heiti SC" size:14]
+#define TFSetPromptTitleFont        [UIFont fontWithName:@"Heiti SC" size:16]
+
+/*** 日志 ***/
+#ifdef DEBUG
+#define TFLog(...) NSLog(__VA_ARGS__)
+#else
+#define TFLog(...)
+#endif
+
+#define TFLogFunc TFLog(@"%s", __func__);
+
+/*** 颜色 ***/
+#define TFRGBColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+#define TFColor(r, g, b) TFRGBColor((r), (g), (b), 255)
+#define TFRandomColor TFColor(arc4random_uniform(255), arc4random_uniform(255), arc4random_uniform(255))
+#define TFrayColor(v) TFColor((v), (v), (v))
+#define TFCommonBgColor TFrayColor(206)
+#define TFGlobalBg TFColor(239, 239, 239)
+
+/*** 本地保存 ***/
+#define TFUSER_DEFAULTS  [NSUserDefaults standardUserDefaults]
+
+/*** 根控制器 ***/
+#define TFkeyWindowView [UIApplication sharedApplication].keyWindow
+
+/*** 缓存路径 ***/
+#define TFCustomCacheFile [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"Treasure"]
+
+/*** 九宫格子类控制器 ***/
+#define ControllerArray  @[@"TFFundRecordController" ,@"TFStatisticsController", @"TFMineInvestController" ,@"TFReceivableController", @"TFMineAwardController" ,@"TFRecommendController", @"TFIntegralController", @"TFVoluntarilyController"]
+
+/*** 利率选择 ***/
+#define InterestArray  @[@"5%", @"6%", @"7%", @"8%", @"9%", @"10%", @"11%",@"12%",@"13%",@"14%", @"15%", @"16%", @"17%", @"18%", @"19%", @"20%", @"21%", @"22%", @"23%", @"24%"];
+
+/*** 期限选择 ***/
+#define TimeLimitArray @[@"1个月", @"2个月", @"3个月", @"4个月", @"5个月", @"6个月", @"7个月", @"8个月", @"9个月", @"10个月", @"11个月", @"12个月", @"13个月", @"14个月", @"15个月", @"16个月", @"17个月", @"18个月", @"19个月", @"20个月", @"21个月", @"22个月", @"23个月", @"24个月", @"25个月", @"26个月", @"27个月", @"28个月", @"29个月", @"30个月", @"31个月", @"32个月", @"33个月", @"34个月", @"35个月", @"36个月"];
+
+
+#endif
+/***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
+
+#endif /* TreasurePrefix_pch */
