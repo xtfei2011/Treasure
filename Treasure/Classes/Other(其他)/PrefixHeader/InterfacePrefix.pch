@@ -1,0 +1,26 @@
+//
+//  InterfacePrefix.pch
+//  Treasure
+//
+//  Created by 谢腾飞 on 2017/6/3.
+//  Copyright © 2017年 谢腾飞. All rights reserved.
+//
+
+#ifndef InterfacePrefix_pch
+#define InterfacePrefix_pch
+
+/*** 如果希望某些内容能拷贝到任何源代码文件(OC\C\C++等), 那么就不要写在#ifdef __OBJC__和#endif之间 ***/
+
+/***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
+#ifdef __OBJC__
+
+/*** 公共接口 ***/
+#define Common_Interface_Montage(A)  [NSString stringWithFormat:@"%@%@", Comment_DataInterface ,A]
+
+/*** 双参公共接口 ***/
+#define Common_Interface_Montages(A, B)  [NSString stringWithFormat:@"%@%@%@", Comment_DataInterface ,A ,B]
+
+#endif
+/***** 在#ifdef __OBJC__和#endif之间的内容, 只会拷贝到OC源代码文件中, 不会拷贝到其他语言的源代码文件中 *****/
+
+#endif /* InterfacePrefix_pch */
