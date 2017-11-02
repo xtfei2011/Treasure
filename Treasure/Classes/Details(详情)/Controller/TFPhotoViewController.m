@@ -75,8 +75,8 @@
         self.imageView = imageView;
     }
     
-    _scrollView.pagingEnabled = YES;
-    _scrollView.hidden = YES;
+    _scrollView.pagingEnabled = true;
+    _scrollView.hidden = true;
     _scrollView.delegate = self;
     [self.view addSubview:_scrollView];
 }
@@ -110,7 +110,7 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.item.frame = self.view.frame;
     } completion:^(BOOL finished) {
-        _scrollView.hidden = NO;
+        _scrollView.hidden = false;
         [self.item removeFromSuperview];
         self.item.frame = self.item.originFrame;
         [self.pictureView addSubview:self.item];

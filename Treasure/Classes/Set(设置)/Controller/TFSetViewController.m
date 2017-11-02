@@ -104,7 +104,6 @@
         TFActionSheet *sheet = [[TFActionSheet alloc] initWithTitles:titles clickAction:^(TFActionSheet *sheet, NSIndexPath *indexPath) {
             
             if (indexPath.row == 0) {
-                
                 TFNoteChangeController *noteChange = [[TFNoteChangeController alloc] init];
                 noteChange.accountModel = self.accountModel;
                 [self.navigationController pushViewController:noteChange animated:YES];
@@ -113,8 +112,8 @@
                 TFChangePasswordController *changePassword = [[TFChangePasswordController alloc] init];
                 changePassword.type = true;
                 [self.navigationController pushViewController:changePassword animated:YES];
-            } else {
                 
+            } else {
                 TFChangePasswordController *changPassword = [[TFChangePasswordController alloc] init];
                 changPassword.type = false;
                 [self.navigationController pushViewController:changPassword animated:YES];

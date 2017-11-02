@@ -183,7 +183,7 @@
         
         [TFNetworkTools postResultWithUrl:urlStr params:params success:^(id responseObject) {
             [TFProgressHUD dismiss];
-            TFLog(@"-->%@",responseObject);
+            
             if ([responseObject[@"code"] isEqual:@500011]) {
                 [_alertView setPromptTitle:@"您还没有开户，部分功能因此受限！现在去开户吗？" font:14];
                 [_alertView setHintType:TFHintTypeSelect];
