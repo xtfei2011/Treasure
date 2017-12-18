@@ -106,7 +106,7 @@
 }
 
 //按钮方法
--(void)buttonClick:(UIButton *)sender
+- (void)buttonClick:(UIButton *)sender
 {
     if (self.block) {
         self.block(sender.tag);

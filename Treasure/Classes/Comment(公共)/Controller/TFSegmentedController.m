@@ -92,4 +92,9 @@
     childVc.view.frame = CGRectMake(offsetX, 0, TFMainScreen_Width, TFMainScreen_Height);
     [_scorllView addSubview:childVc.view];
 }
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self setupInvestTitleView];
+}
 @end

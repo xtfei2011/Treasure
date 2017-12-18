@@ -9,9 +9,11 @@
 #import "TFPiecewiseController.h"
 #import "TFEnableAwardController.h"
 #import "TFOverdueAwardController.h"
+#import "TFRewardsViewController.h"
 #import "TFTitleButton.h"
 #import "TFIntegralRecordController.h"
 #import "TFIntegralEmployController.h"
+#import "TFRewards.h"
 
 @interface TFPiecewiseController ()<UIScrollViewDelegate>
 /** 当前选中的标题按钮 */
@@ -22,6 +24,10 @@
 @property (nonatomic ,weak) UIScrollView *scrollView;
 /** 标题栏 */
 @property (nonatomic ,weak) UIView *titlesView;
+
+@property (nonatomic ,strong) TFRewards *rewards;
+/** 活动状态 */
+@property (nonatomic ,strong) NSString *activity;
 @end
 
 @implementation TFPiecewiseController
@@ -32,7 +38,35 @@
     
     [self setupNav];
     
-    [self setupChildViewControllers];
+    [self loadData];
+    
+//    [self setupChildViewControllers];
+}
+
+- (void)loadData
+{
+    __weak typeof(self) homeSelf = self;
+    [TFNetworkTools getResultWithUrl:@"api/blessOpen" params:nil success:^(id responseObject) {
+        TFLog(@"%@",responseObject);
+        homeSelf.rewards = [TFRewards mj_objectWithKeyValues:responseObject[@"data"]];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (void)setRewards:(TFRewards *)rewards
+{
+    _rewards = rewards;
+    
+    self.activity = rewards.name;
+    
+    if ([rewards.status isEqualToString:@"open"]) {
+        
+        [self setupChildViewControllers:1];
+    } else {
+        [self setupChildViewControllers:0];
+    }
     
     [self setupScrollView];
     
@@ -42,14 +76,27 @@
     [self addChildVcView];
 }
 
-- (void)setupChildViewControllers
+- (void)setupChildViewControllers:(NSInteger )teger
 {
-    if (self.type == 0) {
+    if (self.type == 0 && teger == 1) {
+        
+        TFRewardsViewController *rewards = [[TFRewardsViewController alloc] init];
+        [self addChildViewController:rewards];
+        
         TFEnableAwardController *enableAward = [[TFEnableAwardController alloc] init];
         [self addChildViewController:enableAward];
         
         TFOverdueAwardController *overdueAward = [[TFOverdueAwardController alloc] init];
         [self addChildViewController:overdueAward];
+        
+    } else if (self.type == 0 && teger == 0) {
+        
+        TFEnableAwardController *enableAward = [[TFEnableAwardController alloc] init];
+        [self addChildViewController:enableAward];
+        
+        TFOverdueAwardController *overdueAward = [[TFOverdueAwardController alloc] init];
+        [self addChildViewController:overdueAward];
+        
     } else {
         TFIntegralRecordController *integralRecord = [[TFIntegralRecordController alloc] init];
         [self addChildViewController:integralRecord];
@@ -85,7 +132,9 @@
     self.titlesView = titlesView;
     
     // 添加标题
-    NSArray *titles = (self.type) ? @[@"积分记录", @"使用记录"] : @[@"可使用", @"已过期"];
+    NSArray *activity = [self.rewards.status isEqualToString:@"open"] ? @[self.activity ,@"可使用", @"已过期"] : @[@"可使用", @"已过期"];
+    
+    NSArray *titles = (self.type) ? @[@"积分记录", @"使用记录"] : activity;
     NSUInteger count = titles.count;
     CGFloat titleButtonW = titlesView.xtf_width / count;
     CGFloat titleButtonH = titlesView.xtf_height;
@@ -118,7 +167,6 @@
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(TFMainScreen_Width/2 - 0.5, 5, 1, 25)];
     line.backgroundColor = TFGlobalBg;
     [self.titlesView addSubview:line];
-    
 }
 
 - (void)setupNav

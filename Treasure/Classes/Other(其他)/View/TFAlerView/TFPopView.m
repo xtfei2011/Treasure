@@ -58,10 +58,9 @@
     }
 }
 
-- (void)textDismiss {
-    
+- (void)textDismiss
+{
     [UIView animateWithDuration:0.1 animations:^{
-        
         self.textFieldView.transform = CGAffineTransformMakeScale(0.01, 0.01);
         
     }completion:^(BOOL finished) {

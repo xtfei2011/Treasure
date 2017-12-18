@@ -41,6 +41,8 @@ static NSString * const TFRecommendID = @"TFRecomViewCell";
     
     _alertView = [[TFAlertView alloc] initWithFrame:TFScreeFrame];
     
+    self.hidesBottomBarWhenPushed = NO;
+    
     [self setupNavigationItem];
     [self setupTabelView];
     [self setupRefresh];
@@ -93,7 +95,7 @@ static NSString * const TFRecommendID = @"TFRecomViewCell";
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"device"] = @"ios";
-    params[@"version"] = @"3.0";
+    params[@"version"] = @"2.0.4";
     
     [TFNetworkTools getResultWithUrl:@"api/checkversion" params:params success:^(id responseObject) {
         

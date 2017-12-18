@@ -13,6 +13,7 @@
 #import "TFLoginViewController.h"
 #import "TFNavigationController.h"
 #import "TFTiedCardController.h"
+#import "TFMineAwardController.h"
 
 @interface TFWebViewController ()<WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler, UINavigationControllerDelegate, UINavigationBarDelegate>
 @property (nonatomic ,strong) TFAlertView *alertView;
@@ -217,6 +218,17 @@ static void *TFBrowserContext = &TFBrowserContext;
                 [homeSelf jumpTopup];
             }
         };
+    } else if ([message isEqualToString:@"anniversary"]) {
+        
+        TFAccount *account = [TFAccountTool account];
+        if (account.access_token) {
+            [homeSelf jumpAnniversary];
+        } else {
+            [self closeItemClicked];
+            [self noneLogin];
+        }
+        
+        completionHandler();
     } else {
         [_alertView setHintType:TFHintTypeDefault];
         [TFkeyWindowView addSubview:_alertView];
@@ -232,6 +244,12 @@ static void *TFBrowserContext = &TFBrowserContext;
 {
     TFTiedCardController *tiedCard = [[TFTiedCardController alloc] init];
     [self.navigationController pushViewController:tiedCard animated:YES];
+}
+
+- (void)jumpAnniversary
+{
+    TFMineAwardController *mineAward = [[TFMineAwardController alloc] init];
+    [self.navigationController pushViewController:mineAward animated:YES];
 }
 
 /*** 拦截执行网页中的JS方法 ***/
@@ -345,7 +363,6 @@ static void *TFBrowserContext = &TFBrowserContext;
     if (!_closeBarItem) {
         _closeBarItem = [[UIBarButtonItem alloc] initWithTitle:@"关闭" style:UIBarButtonItemStylePlain target:self action:@selector(closeItemClicked)];
         [_closeBarItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"Helvetica-Bold" size:16], NSFontAttributeName, [UIColor whiteColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
-//        _closeBarItem.tintColor = [UIColor whiteColor];
     }
     return _closeBarItem;
 }

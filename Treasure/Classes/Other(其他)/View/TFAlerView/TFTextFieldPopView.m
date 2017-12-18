@@ -107,7 +107,7 @@ typedef void(^cancelBtnClick)(void);
     if (self.determineBtnClick) {
         
         NSString *text = nil;
-        if ([_textField.text isEqualToString:@""]) {
+        if (_textField.text.length == 0) {
             [TFProgressHUD showInfoMsg:@"没有任何输入！"];
         } else {
             text = _textField.text;
@@ -117,15 +117,16 @@ typedef void(^cancelBtnClick)(void);
     }
 }
 
-- (void)cancelBtnPress:(UIButton *)btn {
-    
+- (void)cancelBtnPress:(UIButton *)btn
+{
     if (self.cancelBtnClick) {
         self.cancelBtnClick();
         [self endEditing:YES];
     }
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
     [super touchesBegan:touches withEvent:event];
     [self endEditing:YES];
 }

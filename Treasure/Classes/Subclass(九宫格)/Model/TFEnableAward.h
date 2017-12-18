@@ -34,4 +34,5 @@ typedef NS_ENUM(NSUInteger, TFEnableAwardType) {
 @property (nonatomic ,strong) NSString *name;
 
 @property (nonatomic ,strong) NSString *ID;
+@property (nonatomic ,strong) NSString *remark;
 @end

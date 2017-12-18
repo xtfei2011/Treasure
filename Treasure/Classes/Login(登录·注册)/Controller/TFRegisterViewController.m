@@ -71,7 +71,7 @@
         params[@"code"] = secretKey;
         
         [TFNetworkTools getResultWithUrl:@"api/requireSmsCode" params:params success:^(id responseObject) {
-            
+            TFLog(@"--->%@",responseObject);
             if ([responseObject[@"code"] isEqual:@400015]) {
                 
                 [TFProgressHUD showInfoMsg:responseObject[@"msg"]];

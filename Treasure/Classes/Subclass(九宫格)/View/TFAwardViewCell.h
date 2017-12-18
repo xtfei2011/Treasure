@@ -12,6 +12,7 @@
 @class TFAwardViewCell, TFEnableAward;
 @protocol TFAwardViewCellDelegate <NSObject>
 - (void)awardViewCellClick:(TFAwardViewCell *)cell;
+- (void)activateBtnClick:(UIButton *)sender;
 @end
 
 @interface TFAwardViewCell : UITableViewCell

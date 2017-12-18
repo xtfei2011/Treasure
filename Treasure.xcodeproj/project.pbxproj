@@ -164,6 +164,12 @@
 		79B691B61EE6AB32008A79E3 /* TFPersonGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B691B51EE6AB32008A79E3 /* TFPersonGroup.m */; };
 		79B691B91EE6ABB9008A79E3 /* TFNormalViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B691B81EE6ABB9008A79E3 /* TFNormalViewCell.m */; };
 		79B691BC1EE6AD52008A79E3 /* TFMoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B691BB1EE6AD52008A79E3 /* TFMoreViewCell.m */; };
+		79DACC771FE6A5C8009326B5 /* TFRewardsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DACC761FE6A5C8009326B5 /* TFRewardsViewController.m */; };
+		79DACC7A1FE6A824009326B5 /* TFRewards.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DACC791FE6A824009326B5 /* TFRewards.m */; };
+		79DACC7E1FE6B040009326B5 /* TFRewardsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DACC7C1FE6B040009326B5 /* TFRewardsCell.m */; };
+		79DACC7F1FE6B040009326B5 /* TFRewardsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 79DACC7D1FE6B040009326B5 /* TFRewardsCell.xib */; };
+		79DACC821FE6BB29009326B5 /* TFInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DACC811FE6BB29009326B5 /* TFInstruction.m */; };
+		79DACC851FE75394009326B5 /* TFActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DACC841FE75394009326B5 /* TFActivity.m */; };
 		79DE568D1EE24F9F009203B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79DE568C1EE24F9F009203B3 /* Assets.xcassets */; };
 		79DE56901EE24F9F009203B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79DE568E1EE24F9F009203B3 /* LaunchScreen.storyboard */; };
 		79DE569B1EE24F9F009203B3 /* TreasureTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 79DE569A1EE24F9F009203B3 /* TreasureTests.m */; };
@@ -499,6 +505,17 @@
 		79B691B81EE6ABB9008A79E3 /* TFNormalViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFNormalViewCell.m; sourceTree = "<group>"; };
 		79B691BA1EE6AD52008A79E3 /* TFMoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFMoreViewCell.h; sourceTree = "<group>"; };
 		79B691BB1EE6AD52008A79E3 /* TFMoreViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFMoreViewCell.m; sourceTree = "<group>"; };
+		79DACC751FE6A5C8009326B5 /* TFRewardsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFRewardsViewController.h; sourceTree = "<group>"; };
+		79DACC761FE6A5C8009326B5 /* TFRewardsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFRewardsViewController.m; sourceTree = "<group>"; };
+		79DACC781FE6A824009326B5 /* TFRewards.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFRewards.h; sourceTree = "<group>"; };
+		79DACC791FE6A824009326B5 /* TFRewards.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFRewards.m; sourceTree = "<group>"; };
+		79DACC7B1FE6B040009326B5 /* TFRewardsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFRewardsCell.h; sourceTree = "<group>"; };
+		79DACC7C1FE6B040009326B5 /* TFRewardsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFRewardsCell.m; sourceTree = "<group>"; };
+		79DACC7D1FE6B040009326B5 /* TFRewardsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TFRewardsCell.xib; sourceTree = "<group>"; };
+		79DACC801FE6BB29009326B5 /* TFInstruction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFInstruction.h; sourceTree = "<group>"; };
+		79DACC811FE6BB29009326B5 /* TFInstruction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFInstruction.m; sourceTree = "<group>"; };
+		79DACC831FE75394009326B5 /* TFActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TFActivity.h; sourceTree = "<group>"; };
+		79DACC841FE75394009326B5 /* TFActivity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TFActivity.m; sourceTree = "<group>"; };
 		79DE567D1EE24F9F009203B3 /* Treasure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Treasure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79DE568C1EE24F9F009203B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		79DE568F1EE24F9F009203B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -676,6 +693,8 @@
 				794B17A41EF7731C006762C1 /* TFEnableAwardController.m */,
 				794B17A61EF7732E006762C1 /* TFOverdueAwardController.h */,
 				794B17A71EF7732F006762C1 /* TFOverdueAwardController.m */,
+				79DACC751FE6A5C8009326B5 /* TFRewardsViewController.h */,
+				79DACC761FE6A5C8009326B5 /* TFRewardsViewController.m */,
 				794B17A91EF7746A006762C1 /* TFMineAwardController.h */,
 				794B17AA1EF7746A006762C1 /* TFMineAwardController.m */,
 				794B17BF1EF7BCD8006762C1 /* TFIntegralController.h */,
@@ -717,6 +736,10 @@
 				794B17F11EF7C6D0006762C1 /* TFRecommend.m */,
 				791252071EF8A9BE0044EC4F /* TFVoluntarily.h */,
 				791252081EF8A9BE0044EC4F /* TFVoluntarily.m */,
+				79DACC781FE6A824009326B5 /* TFRewards.h */,
+				79DACC791FE6A824009326B5 /* TFRewards.m */,
+				79DACC831FE75394009326B5 /* TFActivity.h */,
+				79DACC841FE75394009326B5 /* TFActivity.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -763,6 +786,11 @@
 				7912520D1EF8AA5B0044EC4F /* TFVoluntarilyView.xib */,
 				7912520F1EF8ACE10044EC4F /* TFPickerView.h */,
 				791252101EF8ACE10044EC4F /* TFPickerView.m */,
+				79DACC7B1FE6B040009326B5 /* TFRewardsCell.h */,
+				79DACC7C1FE6B040009326B5 /* TFRewardsCell.m */,
+				79DACC7D1FE6B040009326B5 /* TFRewardsCell.xib */,
+				79DACC801FE6BB29009326B5 /* TFInstruction.h */,
+				79DACC811FE6BB29009326B5 /* TFInstruction.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1529,6 +1557,7 @@
 				794B17E71EF7C56F006762C1 /* TFRecommendViewCell.xib in Resources */,
 				797421621EE7D75400761788 /* TFAccountViewCell.xib in Resources */,
 				79021C311F623482009DBB55 /* TFTiedCardController.xib in Resources */,
+				79DACC7F1FE6B040009326B5 /* TFRewardsCell.xib in Resources */,
 				794B17DF1EF7C49D006762C1 /* TFRecommendView.xib in Resources */,
 				7912520E1EF8AA5B0044EC4F /* TFVoluntarilyView.xib in Resources */,
 				7920FF221EF629BC00A566B3 /* TFShopTopView.xib in Resources */,
@@ -1717,6 +1746,7 @@
 				7983D0941EEF957A0029B11B /* TFInvestDetailsHeaderView.m in Sources */,
 				79544B8D1EF3CEDA003D873F /* TFMenuGenre.m in Sources */,
 				794B17AB1EF7746A006762C1 /* TFMineAwardController.m in Sources */,
+				79DACC851FE75394009326B5 /* TFActivity.m in Sources */,
 				797421711EE7E9AC00761788 /* TFCommentController.m in Sources */,
 				79524FA31EF51BEA00161E6F /* TFAlertView.m in Sources */,
 				791252181EF8F0FF0044EC4F /* TFNewfeatureController.m in Sources */,
@@ -1743,6 +1773,7 @@
 				797421821EE7F41000761788 /* TFTerminalController.m in Sources */,
 				79442BDC1EF0D5CE00D03A5C /* TFAccountModel.m in Sources */,
 				794B17E61EF7C56F006762C1 /* TFRecommendViewCell.m in Sources */,
+				79DACC821FE6BB29009326B5 /* TFInstruction.m in Sources */,
 				79524FA81EF51CA100161E6F /* TFParams.m in Sources */,
 				79524F861EF4BF4F00161E6F /* TFHasBeenBackController.m in Sources */,
 				794B17B31EF77A2B006762C1 /* TFEnableAward.m in Sources */,
@@ -1760,8 +1791,11 @@
 				7920FF141EF624FD00A566B3 /* TFPictureController.m in Sources */,
 				79DE57C81EE267B4009203B3 /* TFRefreshHeader.m in Sources */,
 				79DE57D51EE27EA1009203B3 /* TFAccountTool.m in Sources */,
+				79DACC7A1FE6A824009326B5 /* TFRewards.m in Sources */,
 				79DE56F11EE258EB009203B3 /* TFMoreViewController.m in Sources */,
 				7983D0C21EEFDF440029B11B /* TFLoginViewController.m in Sources */,
+				79DACC7E1FE6B040009326B5 /* TFRewardsCell.m in Sources */,
+				79DACC771FE6A5C8009326B5 /* TFRewardsViewController.m in Sources */,
 				79524F9A1EF5169C00161E6F /* TFWithdrawViewController.m in Sources */,
 				7928F1C21EEE711200334709 /* TFTitleButton.m in Sources */,
 				79524F801EF4BA8900161E6F /* TFReceivableController.m in Sources */,

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *awardBtn;
 @property (weak, nonatomic) IBOutlet UIButton *checkBtn;
 @property (weak, nonatomic) IBOutlet UIButton *pastBtn;
+@property (weak, nonatomic) IBOutlet UIButton *activateBtn;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @end
@@ -33,13 +34,15 @@
     if ([enableAward.name isEqualToString:@"relived"]) {
         _nameLabel.text = @"体验金";
         _moneyLabel.text = [NSString stringWithFormat:@"¥ %ld",[enableAward.money integerValue]];
-    }
-    if ([enableAward.name isEqualToString:@"award"]) {
+    } else if ([enableAward.name isEqualToString:@"award"]) {
         _nameLabel.text = @"现金券";
         _moneyLabel.text = [NSString stringWithFormat:@"¥ %ld",[enableAward.money integerValue]];
-    }else if ([enableAward.name isEqualToString:@"addinterest"]){
+    } else if ([enableAward.name isEqualToString:@"addinterest"]) {
         _nameLabel.text = @"加息券";
         _moneyLabel.text = [NSString stringWithFormat:@"¥ %.1f%%",[enableAward.money doubleValue]];
+    } else if ([enableAward.name isEqualToString:@"envelopes"]) {
+        _nameLabel.text = @"红包券";
+        _moneyLabel.text = [NSString stringWithFormat:@"¥ %ld",[enableAward.money integerValue]];
     }
     
     _moneyLabel.keywords = @"¥";
@@ -48,9 +51,46 @@
     _descriptionLabel.text = [NSString stringWithFormat:@"·%@",enableAward.descrip];
     _timeLabel.text = [NSString stringWithFormat:@"·%@ 至 %@",enableAward.start_date, enableAward.end_date];
     
+    if ([enableAward.name isEqualToString:@"envelopes"] && [enableAward.remark isEqualToString:@"可使用"]) {
+        _checkBtn.hidden = YES; _awardBtn.hidden = YES; _pastBtn.hidden = YES; _activateBtn.hidden = NO;
+        _activateBtn.layer.masksToBounds = YES;
+        _activateBtn.layer.cornerRadius = 10;
+        _activateBtn.layer.borderWidth = 1;
+        _activateBtn.layer.borderColor = TFColor(252, 99, 102).CGColor;
+        [_activateBtn setTitle:@"点击激活" forState:UIControlStateNormal];
+        return;
+    } else if ([enableAward.name isEqualToString:@"envelopes"] && [enableAward.remark isEqualToString:@"已激活"]) {
+        
+        _checkBtn.hidden = YES; _awardBtn.hidden = YES; _pastBtn.hidden = YES; _activateBtn.hidden = NO;
+        _activateBtn.layer.masksToBounds = YES;
+        _activateBtn.layer.cornerRadius = 10;
+        _activateBtn.layer.borderWidth = 1;
+        _activateBtn.layer.borderColor = TFColor(252, 99, 102).CGColor;
+        [_activateBtn setTitle:@"已激活" forState:UIControlStateNormal];
+        return;
+    } else if ([enableAward.name isEqualToString:@"envelopes"] && [enableAward.remark isEqualToString:@"已发放"]) {
+        
+        _checkBtn.hidden = YES; _awardBtn.hidden = YES; _pastBtn.hidden = YES; _activateBtn.hidden = NO;
+        _activateBtn.layer.masksToBounds = YES;
+        _activateBtn.layer.cornerRadius = 10;
+        _activateBtn.layer.borderWidth = 1;
+        _activateBtn.layer.borderColor = TFColor(252, 99, 102).CGColor;
+        [_activateBtn setTitle:@"已领取奖励" forState:UIControlStateNormal];
+        return;
+    } else if ([enableAward.name isEqualToString:@"envelopes"] && [enableAward.remark isEqualToString:@"已过期"]) {
+        
+        _checkBtn.hidden = YES; _awardBtn.hidden = YES; _pastBtn.hidden = YES; _activateBtn.hidden = NO;
+        _activateBtn.layer.masksToBounds = YES;
+        _activateBtn.layer.cornerRadius = 10;
+        _activateBtn.layer.borderWidth = 1;
+        _activateBtn.layer.borderColor = TFColor(252, 99, 102).CGColor;
+        [_activateBtn setTitle:@"已过期" forState:UIControlStateNormal];
+        return;
+    }
+    
     if ([enableAward.remark_str isEqualToString:@"未使用"]) {
         
-        _checkBtn.hidden = YES; _awardBtn.hidden = NO; _pastBtn.hidden = YES;
+        _checkBtn.hidden = YES; _awardBtn.hidden = NO; _pastBtn.hidden = YES; _activateBtn.hidden = YES;
         _awardBtn.layer.masksToBounds = YES;
         _awardBtn.layer.cornerRadius = 10;
         _awardBtn.layer.borderWidth = 1;
@@ -60,7 +100,7 @@
     }
     if ([enableAward.remark_str isEqualToString:@"已使用"]) {
         
-        _checkBtn.hidden = NO; _awardBtn.hidden = YES; _pastBtn.hidden = YES;
+        _checkBtn.hidden = NO; _awardBtn.hidden = YES; _pastBtn.hidden = YES; _activateBtn.hidden = YES;
         _checkBtn.layer.masksToBounds = YES;
         _checkBtn.layer.cornerRadius = 10;
         _checkBtn.layer.borderWidth = 1;
@@ -71,7 +111,7 @@
     }
     if ([enableAward.remark_str isEqualToString:@"已过期"]) {
         
-        _checkBtn.hidden = YES; _awardBtn.hidden = YES; _pastBtn.hidden = NO;
+        _checkBtn.hidden = YES; _awardBtn.hidden = YES; _pastBtn.hidden = NO; _activateBtn.hidden = YES;
         _pastBtn.layer.masksToBounds = YES;
         _pastBtn.layer.cornerRadius = 10;
         _pastBtn.backgroundColor = TFrayColor(123);
@@ -91,6 +131,13 @@
 {
     if ([self.delegate respondsToSelector:@selector(awardViewCellClick:)]) {
         [self.delegate awardViewCellClick:self];
+    }
+}
+
+- (IBAction)activateBtnClick:(UIButton *)sender
+{
+    if ([self.delegate respondsToSelector:@selector(activateBtnClick:)]) {
+        [self.delegate activateBtnClick:sender];
     }
 }
 
